@@ -1,4 +1,19 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
+.App {
+  position: relative;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column {
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  display: block;
 }
