@@ -5,6 +5,7 @@ import Header from "../Components/Header/Header";
 import Home from "../Components/Home/Home";
 import { Route, Link } from "react-router-dom";
 import Region from "../Components/Region/Region";
+import Country from "../Components/Country/Country";
 
 let localUrl = "http://localhost:3000/";
 
@@ -51,6 +52,12 @@ class App extends Component {
             path="/region/:region"
             render={routerProps => (
               <Region data={this.state.data} {...routerProps} />
+            )}
+          />
+          <Route
+            path="/country/:country"
+            render={routerProps => (
+              <Country datra={this.state.data} {...routerProps} />
             )}
           />
 
