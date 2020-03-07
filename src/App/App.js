@@ -57,10 +57,9 @@ class App extends Component {
           <Route
             path="/country/:country"
             render={routerProps => (
-              <Country datra={this.state.data} {...routerProps} />
+              <Country data={this.state.data} {...routerProps} />
             )}
           />
-
           {/* <Footer /> */}
         </div>
       );
