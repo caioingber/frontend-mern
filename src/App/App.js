@@ -45,6 +45,12 @@ class App extends Component {
               <Home data={this.state.data} regions={this.state.regions} />
             )}
           />
+          {/* <Route
+            path="/region/:region"
+            render={() => (
+              <Region data={this.state.data} regions={this.state.regions} />
+            )}
+          /> */}
 
           <Footer />
         </div>

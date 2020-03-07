@@ -8,7 +8,7 @@ function Home(props) {
     if (!regions.includes(place.country.region)) {
       regions.push(place.country.region);
       return (
-        <Link to={`/region/${place.country.region}`}>
+        <Link to={`/region/${place.country.region}`} className="flex column">
           <div
             key={place._id}
             className="region flex"
