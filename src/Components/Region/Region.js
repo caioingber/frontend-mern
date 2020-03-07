@@ -5,10 +5,13 @@ import { Link } from "react-router-dom";
 function Region(props) {
   let thumbNails = props.data.map(place => {
     if (props.match.params.region === place.country.region) {
+      let backgroundImg = {
+        backgroundImage: `url(${place.country.flag})`
+      };
       return (
-        <div className="tile">
-          <img src={place.country.flag} className="flag"></img>
-          <h2 className="park-name-tile">{place.country.name}</h2>
+        <div className="tile flex" style={backgroundImg}>
+          <h3 className="country-name flex">{place.country.name}</h3>
+          <div className="country-overlay"></div>
         </div>
       );
     }

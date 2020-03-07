@@ -6,11 +6,32 @@
 }
 
 .tile {
+  position: relative;
   height: 200px;
-  width: 200px;
+  width: 100%;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5%;
 }
 
-.flag {
+.country-overlay {
+  background-color: rgba(0, 0, 0, 0.598);
   height: 100%;
   width: 100%;
+  z-index: 2;
+  border-radius: 5%;
+}
+
+.country-overlay:hover {
+  background-color: rgba(0, 0, 0, 0.119);
+  transition: 0.5s;
+}
+
+.country-name {
+  position: absolute;
+  z-index: 4;
+  text-align: center;
+  text-shadow: rgb(26, 26, 26) 2px 2px;
+  cursor: pointer;
 }
