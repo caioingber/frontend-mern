@@ -7,7 +7,12 @@ function Country(props) {
     place => place.country.name === props.match.params.country
   );
   console.log(locale);
-  return <div>{locale[0].country.name}</div>;
+  return (
+    <div>
+      <Link to={`/region/${locale[0].country.region}`}>Back to Region</Link>
+      {locale[0].country.name}
+    </div>
+  );
 }
 
 export default Country;
