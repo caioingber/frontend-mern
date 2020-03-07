@@ -1,8 +1,13 @@
 .countries-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 2%;
+  grid-column-gap: 2%;
+  grid-row-gap: 4%;
   width: 80%;
+}
+
+.region-name {
+  height: 80px;
 }
 
 .tile {
@@ -17,21 +22,22 @@
 
 .country-overlay {
   background-color: rgba(0, 0, 0, 0.598);
-  height: 100%;
-  width: 100%;
   z-index: 2;
   border-radius: 5%;
 }
 
 .country-overlay:hover {
   background-color: rgba(0, 0, 0, 0.119);
+  z-index: 4;
   transition: 0.5s;
+  cursor: pointer;
 }
 
 .country-name {
   position: absolute;
-  z-index: 4;
+  z-index: 3;
   text-align: center;
   text-shadow: rgb(26, 26, 26) 2px 2px;
   cursor: pointer;
+  width: 90%;
 }

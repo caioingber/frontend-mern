@@ -3,11 +3,14 @@
   position: relative;
   background-color: black;
   color: white;
-  margin-bottom: 10px;
 }
 
-.home {
+.home-btn {
   position: absolute;
   right: 5%;
   cursor: pointer;
+}
+
+.home-btn a {
+  color: white;
 }

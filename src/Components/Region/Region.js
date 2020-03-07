@@ -9,17 +9,19 @@ function Region(props) {
         backgroundImage: `url(${place.country.flag})`
       };
       return (
-        <div className="tile flex" style={backgroundImg}>
-          <h3 className="country-name flex">{place.country.name}</h3>
-          <div className="country-overlay"></div>
-        </div>
+        <Link to={`/country/${place.country.name}`}>
+          <div className="tile flex" style={backgroundImg}>
+            <h3 className="country-name flex">{place.country.name}</h3>
+            <div className="country-overlay fill"></div>
+          </div>
+        </Link>
       );
     }
   });
 
   return (
     <div className="region-container flex column">
-      <h1>{props.match.params.region}</h1>
+      <h1 className="region-name flex">{props.match.params.region}</h1>
       <div className="countries-container">{thumbNails}</div>
     </div>
   );
