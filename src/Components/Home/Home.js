@@ -14,6 +14,7 @@ function Home(props) {
             className="region flex"
             id={place.country.region}
             data={props.data}
+            key={place.country.region}
           >
             {place.country.region}
           </div>

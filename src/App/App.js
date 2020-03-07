@@ -4,6 +4,7 @@ import Footer from "../Components/Footer/Footer";
 import Header from "../Components/Header/Header";
 import Home from "../Components/Home/Home";
 import { Route, Link } from "react-router-dom";
+import Region from "../Components/Region/Region";
 
 let localUrl = "http://localhost:3000/";
 
@@ -41,18 +42,19 @@ class App extends Component {
           <Header />
           <Route
             path="/"
+            exact
             render={() => (
               <Home data={this.state.data} regions={this.state.regions} />
             )}
           />
-          {/* <Route
+          <Route
             path="/region/:region"
-            render={() => (
-              <Region data={this.state.data} regions={this.state.regions} />
+            render={routerProps => (
+              <Region data={this.state.data} {...routerProps} />
             )}
-          /> */}
+          />
 
-          <Footer />
+          {/* <Footer /> */}
         </div>
       );
     }
