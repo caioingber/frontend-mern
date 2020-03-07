@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import "./Country.css";
 import { Link } from "react-router-dom";
 
