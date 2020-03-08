@@ -1,5 +1,6 @@
 .App {
   position: relative;
+  height: 100vh;
 }
 
 .fill {
@@ -26,5 +27,5 @@ a {
 
 main {
   height: 80vh;
-  overflow: scroll;
+  overflow-y: scroll;
 }

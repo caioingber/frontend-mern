@@ -46,8 +46,8 @@ class Region extends Component {
   };
 
   render() {
-    thumbNails = this.state.countries.data.map(place => {
-      if (this.props.match.params.region === place.country.region) {
+    if (this.props.match.params.region === "All") {
+      thumbNails = this.state.countries.data.map(place => {
         let backgroundImg = {
           backgroundImage: `url(${place.country.flag})`
         };
@@ -60,10 +60,27 @@ class Region extends Component {
             </div>
           </Link>
         );
-      } else {
-        return null;
-      }
-    });
+      });
+    } else {
+      thumbNails = this.state.countries.data.map(place => {
+        let backgroundImg = {
+          backgroundImage: `url(${place.country.flag})`
+        };
+        if (this.props.match.params.region === place.country.region) {
+          return (
+            <Link to={`/country/${place.country.name}`}>
+              <div className="tile flex" style={backgroundImg}>
+                <h3 className="country-name flex">{place.country.name}</h3>
+                <div className="reserve">{place.biocapacityReserve}</div>
+                <div className="country-overlay fill"></div>
+              </div>
+            </Link>
+          );
+        } else {
+          return null;
+        }
+      });
+    }
 
     thumbNails = thumbNails.filter(thumb => {
       if (thumb) {
