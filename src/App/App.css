@@ -23,3 +23,8 @@ a {
   display: block;
   width: 100%;
 }
+
+main {
+  height: 80vh;
+  overflow: scroll;
+}

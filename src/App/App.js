@@ -41,26 +41,28 @@ class App extends Component {
       return (
         <div className="App">
           <Header />
-          <Route
-            path="/"
-            exact
-            render={() => (
-              <Home data={this.state.data} regions={this.state.regions} />
-            )}
-          />
-          <Route
-            path="/region/:region"
-            render={routerProps => (
-              <Region data={this.state.data} {...routerProps} />
-            )}
-          />
-          <Route
-            path="/country/:country"
-            render={routerProps => (
-              <Country data={this.state.data} {...routerProps} />
-            )}
-          />
-          {/* <Footer /> */}
+          <main>
+            <Route
+              path="/"
+              exact
+              render={() => (
+                <Home data={this.state.data} regions={this.state.regions} />
+              )}
+            />
+            <Route
+              path="/region/:region"
+              render={routerProps => (
+                <Region data={this.state.data} {...routerProps} />
+              )}
+            />
+            <Route
+              path="/country/:country"
+              render={routerProps => (
+                <Country data={this.state.data} {...routerProps} />
+              )}
+            />
+          </main>
+          <Footer />
         </div>
       );
     }

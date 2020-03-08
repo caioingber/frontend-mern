@@ -11,7 +11,10 @@ class Region extends Component {
       countries: this.props,
       search: "",
       excess: false,
-      deplete: false
+      deplete: false,
+      subs: [],
+      excessBtn: "Excess",
+      depleteBtn: "Deplete"
     };
   }
 
@@ -24,9 +27,9 @@ class Region extends Component {
     if (!this.state.deplete) {
       e.preventDefault();
       if (!this.state.excess) {
-        this.setState({ excess: true });
+        this.setState({ excess: true, excessBtn: "Show All" });
       } else {
-        this.setState({ excess: false });
+        this.setState({ excess: false, excessBtn: "Excess" });
       }
     }
   };
@@ -35,9 +38,9 @@ class Region extends Component {
     e.preventDefault();
     if (!this.state.excess) {
       if (!this.state.deplete) {
-        this.setState({ deplete: true });
+        this.setState({ deplete: true, depleteBtn: "Show All" });
       } else {
-        this.setState({ deplete: false });
+        this.setState({ deplete: false, depleteBtn: "Deplete" });
       }
     }
   };
@@ -90,9 +93,10 @@ class Region extends Component {
     return (
       <div className="region-container flex column">
         <h1 className="region-name flex">{this.props.match.params.region}</h1>
-        <button onClick={this.showExcess}>Excess</button>
+        <div className="results">{thumbNails.length} Results</div>
+        <button onClick={this.showExcess}>{this.state.excessBtn}</button>
         <input type="text" onChange={this.setSearch}></input>
-        <button onClick={this.showDeplete}>Deplete</button>
+        <button onClick={this.showDeplete}>{this.state.depleteBtn}</button>
         <div className="countries-container">{thumbNails}</div>
       </div>
     );
