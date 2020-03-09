@@ -28,13 +28,19 @@ class Create extends Component {
     } else {
       this.setState({ [place]: e.target.value });
     }
+    console.log(e.target.value);
+  };
+
+  setSelect = e => {
+    e.preventDefault();
+    this.setState({ region: e.target.value });
   };
 
   render() {
     console.log(this.state);
     return (
-      <div className="create">
-        <form>
+      <div className="">
+        <form className="create flex column">
           <input
             type="text"
             placeholder="name"
@@ -45,8 +51,10 @@ class Create extends Component {
             placeholder="capital"
             onChange={this.setInput}
           ></input>
-          <select placeholder="region" onChange={this.setInput}>
-            <option value="" disabled selected hidden></option>
+          <select placeholder="region" onChange={this.setSelect} type="text">
+            <option value="" disabled selected hidden>
+              Region
+            </option>
             <option value="Africa">Africa</option>
             <option value="Americas">Americas</option>
             <option value="Europe"> Europe</option>
