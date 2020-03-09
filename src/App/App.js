@@ -3,7 +3,7 @@ import "./App.css";
 import Footer from "../Components/Footer/Footer";
 import Header from "../Components/Header/Header";
 import Home from "../Components/Home/Home";
-import { Route, Link } from "react-router-dom";
+import { Route, Link, Switch } from "react-router-dom";
 import Region from "../Components/Region/Region";
 import Country from "../Components/Country/Country";
 
@@ -25,13 +25,15 @@ class App extends Component {
         return res.json();
       })
       .then(countries => {
+        console.log(countries);
         this.setState({ data: countries, loading: true });
         this.state.data.forEach(place => {
           if (!this.state.regions.includes(place.country.region)) {
             this.state.regions.push(place.country.region);
           }
         });
-      });
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
@@ -42,25 +44,29 @@ class App extends Component {
         <div className="App">
           <Header />
           <main>
-            <Route
-              path="/"
-              exact
-              render={() => (
-                <Home data={this.state.data} regions={this.state.regions} />
-              )}
-            />
-            <Route
-              path="/region/:region"
-              render={routerProps => (
-                <Region data={this.state.data} {...routerProps} />
-              )}
-            />
-            <Route
-              path="/country/:country"
-              render={routerProps => (
-                <Country data={this.state.data} {...routerProps} />
-              )}
-            />
+            <Switch>
+              <Route
+                path="/"
+                exact
+                render={() => (
+                  <Home data={this.state.data} regions={this.state.regions} />
+                )}
+              />
+              <Route
+                path="/region/:region"
+                render={routerProps => (
+                  <Region data={this.state.data} {...routerProps} />
+                )}
+              />
+              <Route
+                path="/country/:country"
+                render={routerProps => (
+                  <Country data={this.state.data} {...routerProps} />
+                )}
+              />
+
+              {/* <Route component={FourOhFour} /> */}
+            </Switch>
           </main>
           <Footer />
         </div>

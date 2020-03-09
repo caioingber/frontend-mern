@@ -12,7 +12,6 @@ class Region extends Component {
       search: "",
       excess: false,
       deplete: false,
-      subs: [],
       excessBtn: "Excess",
       depleteBtn: "Deplete"
     };
@@ -46,7 +45,7 @@ class Region extends Component {
   };
 
   render() {
-    if (this.props.match.params.region === "All") {
+    if (this.props.match.params.region === "World") {
       thumbNails = this.state.countries.data.map(place => {
         let backgroundImg = {
           backgroundImage: `url(${place.country.flag})`
@@ -85,12 +84,17 @@ class Region extends Component {
     thumbNails = thumbNails.filter(thumb => {
       if (thumb) {
         let result = thumb.props.children.props.children[0].props.children;
-        if (result.startsWith(this.state.search)) {
+        result = result[0].toUpperCase() + result.substr(1);
+        let word = this.state.search;
+        if (word != "") {
+          word = word[0].toUpperCase() + word.substr(1);
+        }
+        if (result.includes(word)) {
           return thumb;
         }
       }
     });
-    if (this.state.excess === true) {
+    if (this.state.excess) {
       thumbNails = thumbNails.filter(thumb => {
         let result = thumb.props.children.props.children[1].props.children;
         if (result > 0) {
@@ -98,7 +102,7 @@ class Region extends Component {
         }
       });
     }
-    if (this.state.deplete === true) {
+    if (this.state.deplete) {
       thumbNails = thumbNails.filter(thumb => {
         let result = thumb.props.children.props.children[1].props.children;
         if (result < 0) {
@@ -114,7 +118,7 @@ class Region extends Component {
         <button onClick={this.showExcess}>{this.state.excessBtn}</button>
         <input type="text" onChange={this.setSearch}></input>
         <button onClick={this.showDeplete}>{this.state.depleteBtn}</button>
-        <div className="countries-container">{thumbNails}</div>
+        <div className="countries-container bottom-margin">{thumbNails}</div>
       </div>
     );
   }

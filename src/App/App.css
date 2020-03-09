@@ -23,9 +23,19 @@ a {
   color: black;
   display: block;
   width: 100%;
+  text-align: center;
 }
 
 main {
   height: 80vh;
-  overflow-y: scroll;
+  overflow-y: auto;
+}
+
+.bottom-margin {
+  margin-bottom: 20px;
+}
+
+.cover {
+  background-size: cover;
+  background-position: center;
 }

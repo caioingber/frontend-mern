@@ -12,27 +12,27 @@ function Home(props) {
         <Link to={`/region/${place.country.region}`} className="flex column">
           <div
             key={place._id}
-            className="region flex"
+            className="region flex cover"
             id={place.country.region}
             data={props.data}
             key={place.country.region}
           >
-            {place.country.region}
+            <h1>{place.country.region}</h1>
           </div>
         </Link>
       );
     } else if (regions.length === 5 && counter < 1) {
       counter++;
       return (
-        <Link to={`/region/All`} className="flex column">
+        <Link to={`/region/World`} className="flex column">
           <div
             key={place._id}
-            className="region flex"
-            id={place.country.region}
+            className="region flex cover"
+            id="All"
             data={props.data}
             key={place.country.region}
           >
-            All
+            <h1>All</h1>
           </div>
         </Link>
       );
@@ -40,7 +40,7 @@ function Home(props) {
       return null;
     }
   });
-  return <div className="landing flex column">{list}</div>;
+  return <div className="landing">{list}</div>;
 }
 
 export default Home;

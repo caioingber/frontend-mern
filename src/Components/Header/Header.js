@@ -7,7 +7,10 @@ function Header() {
     <div className="header flex">
       <p>Header Text Here</p>
       <div className="home-btn">
-        <Link to="/">Home</Link>
+        <Link to="/">
+          {" "}
+          <div className="home-img"></div>
+        </Link>
       </div>
     </div>
   );

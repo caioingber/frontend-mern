@@ -1,5 +1,5 @@
 .header {
-  height: 100px;
+  height: 14vh;
   position: relative;
   background-color: black;
   color: white;
@@ -9,8 +9,19 @@
   position: absolute;
   right: 5%;
   cursor: pointer;
+  transition: 0.5s;
+  padding: 3px;
 }
 
-.home-btn a {
-  color: white;
+.home-img {
+  height: 30px;
+  width: 30px;
+  background-image: url("../../Images/globe.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.home-btn:hover {
+  border: 2px solid white;
+  border-radius: 5%;
 }

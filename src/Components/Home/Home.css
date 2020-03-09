@@ -1,7 +1,40 @@
 .region {
-  height: 150px;
-  width: 80%;
+  height: 100%;
+  width: 100%;
   border: 2px solid black;
-  margin: 10px 0;
+  /* margin: 10px 0; */
   cursor: pointer;
+  color: white;
+  text-shadow: rgba(40, 38, 38, 0.851) 2px 2px;
+}
+
+.landing {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 100%;
+  width: 100%;
+}
+
+#Asia {
+  background-image: url("../../Images/asia.jpeg");
+}
+
+#Americas {
+  background-image: url("../../Images/americas.jpeg");
+}
+
+#Europe {
+  background-image: url("../../Images/europe.jpeg");
+}
+
+#Africa {
+  background-image: url("../../Images/africa.jpeg");
+}
+
+#Oceania {
+  background-image: url("../../Images/oceania.jpeg");
+}
+
+#All {
+  background-image: url("../../Images/earth.jpeg");
 }
