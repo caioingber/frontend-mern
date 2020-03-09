@@ -50,6 +50,11 @@ class Region extends Component {
     }
   };
 
+  reset = e => {
+    hideDeplete = "";
+    hideExcess = "";
+  };
+
   render() {
     if (this.props.match.params.region === "World") {
       thumbNails = this.state.countries.data.map(place => {
@@ -58,7 +63,11 @@ class Region extends Component {
         };
         return (
           <Link to={`/country/${place.country.name}`}>
-            <div className="tile flex" style={backgroundImg}>
+            <div
+              className="tile flex"
+              style={backgroundImg}
+              onClick={this.reset}
+            >
               <h3 className="country-name flex">{place.country.name}</h3>
               <div className="reserve">{place.biocapacityReserve}</div>
               <div className="country-overlay fill"></div>
@@ -74,7 +83,11 @@ class Region extends Component {
         if (this.props.match.params.region === place.country.region) {
           return (
             <Link to={`/country/${place.country.name}`}>
-              <div className="tile flex" style={backgroundImg}>
+              <div
+                className="tile flex"
+                style={backgroundImg}
+                onClick={this.reset}
+              >
                 <h3 className="country-name flex">{place.country.name}</h3>
                 <div className="reserve">{place.biocapacityReserve}</div>
                 <div className="country-overlay fill"></div>

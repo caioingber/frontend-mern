@@ -100,7 +100,6 @@ class App extends Component {
                   <Country data={this.state.data} {...routerProps} />
                 )}
               />
-
               <Route component={FourOhFour} />
             </Switch>
           </main>
