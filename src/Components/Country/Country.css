@@ -3,3 +3,21 @@
   width: 25%;
   border: 2px solid black;
 }
+
+.report {
+  padding-top: 20px;
+  width: 40%;
+  height: 30vh;
+  justify-content: space-around;
+  margin-top: 10px;
+  border: 2px solid black;
+  background-color: rgba(208, 196, 174, 0.797);
+}
+
+.stat {
+  border-radius: 5%;
+}
+
+.back {
+  width: fit-content;
+}
