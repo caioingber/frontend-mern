@@ -49,3 +49,7 @@
 input {
   margin: 0 10px;
 }
+
+.none {
+  display: none;
+}

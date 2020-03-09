@@ -7,6 +7,7 @@ import { Route, Link, Switch } from "react-router-dom";
 import Region from "../Components/Region/Region";
 import Country from "../Components/Country/Country";
 import FourOhFour from "../Components/FourOhFour/FourOhFour";
+import Create from "../Components/Create/Create";
 
 let localUrl = "http://localhost:3000/";
 let deployedUrl = "https://country-ecofootprint-api.herokuapp.com/";
@@ -86,6 +87,7 @@ class App extends Component {
                   <Home data={this.state.data} regions={this.state.regions} />
                 )}
               />
+              <Route path="/country/new" render={() => <Create />}></Route>
               <Route
                 path="/region/:region"
                 render={routerProps => (

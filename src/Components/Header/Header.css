@@ -25,3 +25,12 @@
   border: 2px solid white;
   border-radius: 5%;
 }
+
+.new-country-container {
+  position: absolute;
+  left: 5%;
+}
+
+.new-country-text {
+  color: white;
+}

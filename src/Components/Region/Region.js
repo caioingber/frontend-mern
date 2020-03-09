@@ -3,6 +3,8 @@ import "./Region.css";
 import { Link } from "react-router-dom";
 
 let thumbNails;
+let hideExcess = "";
+let hideDeplete = "";
 
 class Region extends Component {
   constructor(props) {
@@ -27,8 +29,10 @@ class Region extends Component {
       e.preventDefault();
       if (!this.state.excess) {
         this.setState({ excess: true, excessBtn: "Show All" });
+        hideDeplete = "none";
       } else {
         this.setState({ excess: false, excessBtn: "Reserve" });
+        hideDeplete = "";
       }
     }
   };
@@ -38,8 +42,10 @@ class Region extends Component {
     if (!this.state.excess) {
       if (!this.state.deplete) {
         this.setState({ deplete: true, depleteBtn: "Show All" });
+        hideExcess = "none";
       } else {
         this.setState({ deplete: false, depleteBtn: "Deficit" });
+        hideExcess = "";
       }
     }
   };
@@ -116,7 +122,10 @@ class Region extends Component {
         <h1 className="region-name flex">{this.props.match.params.region}</h1>
         <div className="results">{thumbNails.length} Results</div>
         <form className="flex bottom-margin">
-          <button onClick={this.showExcess} className="btn btn-success">
+          <button
+            onClick={this.showExcess}
+            className={`btn btn-success ${hideExcess}`}
+          >
             {this.state.excessBtn}
           </button>
           <input
@@ -124,7 +133,10 @@ class Region extends Component {
             onChange={this.setSearch}
             placeholder="Search Country"
           ></input>
-          <button onClick={this.showDeplete} className="btn btn-danger">
+          <button
+            onClick={this.showDeplete}
+            className={`btn btn-danger ${hideDeplete}`}
+          >
             {this.state.depleteBtn}
           </button>
         </form>
