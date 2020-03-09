@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <div className="header flex">
-      <p>Header Text Here</p>
+      <h1>Ecological Footprint Report Card</h1>
       <div className="home-btn">
         <Link to="/">
           {" "}

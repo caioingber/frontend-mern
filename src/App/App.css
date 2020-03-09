@@ -29,7 +29,7 @@ a {
 main {
   height: 80vh;
   overflow-y: auto;
-  background: rgba(121, 230, 249, 0.523);
+  /* background: rgba(121, 230, 249, 0.523); */
 }
 
 .bottom-margin {

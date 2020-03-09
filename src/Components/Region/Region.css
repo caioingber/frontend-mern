@@ -45,3 +45,7 @@
   cursor: pointer;
   width: 90%;
 }
+
+input {
+  margin: 0 10px;
+}

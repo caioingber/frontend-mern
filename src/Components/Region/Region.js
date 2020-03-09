@@ -12,8 +12,8 @@ class Region extends Component {
       search: "",
       excess: false,
       deplete: false,
-      excessBtn: "Excess",
-      depleteBtn: "Deplete"
+      excessBtn: "Reserve",
+      depleteBtn: "Deficit"
     };
   }
 
@@ -28,7 +28,7 @@ class Region extends Component {
       if (!this.state.excess) {
         this.setState({ excess: true, excessBtn: "Show All" });
       } else {
-        this.setState({ excess: false, excessBtn: "Excess" });
+        this.setState({ excess: false, excessBtn: "Reserve" });
       }
     }
   };
@@ -39,7 +39,7 @@ class Region extends Component {
       if (!this.state.deplete) {
         this.setState({ deplete: true, depleteBtn: "Show All" });
       } else {
-        this.setState({ deplete: false, depleteBtn: "Deplete" });
+        this.setState({ deplete: false, depleteBtn: "Deficit" });
       }
     }
   };
@@ -115,9 +115,19 @@ class Region extends Component {
       <div className="region-container flex column">
         <h1 className="region-name flex">{this.props.match.params.region}</h1>
         <div className="results">{thumbNails.length} Results</div>
-        <button onClick={this.showExcess}>{this.state.excessBtn}</button>
-        <input type="text" onChange={this.setSearch}></input>
-        <button onClick={this.showDeplete}>{this.state.depleteBtn}</button>
+        <form className="flex bottom-margin">
+          <button onClick={this.showExcess} className="btn btn-success">
+            {this.state.excessBtn}
+          </button>
+          <input
+            type="text"
+            onChange={this.setSearch}
+            placeholder="Search Country"
+          ></input>
+          <button onClick={this.showDeplete} className="btn btn-danger">
+            {this.state.depleteBtn}
+          </button>
+        </form>
         <div className="countries-container bottom-margin">{thumbNails}</div>
       </div>
     );
