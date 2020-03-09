@@ -1,2 +1,5 @@
 .country-pic {
+  height: 30vh;
+  width: 25%;
+  border: 2px solid black;
 }

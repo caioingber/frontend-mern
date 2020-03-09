@@ -8,6 +8,7 @@ import Region from "../Components/Region/Region";
 import Country from "../Components/Country/Country";
 
 let localUrl = "http://localhost:3000/";
+let deployedUrl = "https://country-ecofootprint-api.herokuapp.com/";
 
 class App extends Component {
   constructor(props) {
@@ -27,18 +28,50 @@ class App extends Component {
       .then(countries => {
         console.log(countries);
         this.setState({ data: countries, loading: true });
-        this.state.data.forEach(place => {
-          if (!this.state.regions.includes(place.country.region)) {
-            this.state.regions.push(place.country.region);
-          }
-        });
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        fetch(deployedUrl)
+          .then(res => {
+            return res.json();
+          })
+          .then(countries => {
+            console.log(countries);
+            this.setState({ data: countries, loading: true });
+          })
+          .catch(err => console.log(err));
+      });
   }
 
   render() {
     if (!this.state.loading) {
-      return <div>Loading!</div>;
+      return (
+        <div>
+          <div class="spinner-grow text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-grow text-secondary" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-grow text-success" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-grow text-danger" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-grow text-warning" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-grow text-info" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-grow text-light" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <div class="spinner-grow text-dark" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      );
     } else {
       return (
         <div className="App">
