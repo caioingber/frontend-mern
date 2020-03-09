@@ -3,8 +3,6 @@ import "./Region.css";
 import { Link } from "react-router-dom";
 
 let thumbNails;
-let hideExcess = "";
-let hideDeplete = "";
 
 class Region extends Component {
   constructor(props) {
@@ -15,7 +13,9 @@ class Region extends Component {
       excess: false,
       deplete: false,
       excessBtn: "Reserve",
-      depleteBtn: "Deficit"
+      depleteBtn: "Deficit",
+      hideExcess: "",
+      hideDeplete: ""
     };
   }
 
@@ -28,11 +28,13 @@ class Region extends Component {
     if (!this.state.deplete) {
       e.preventDefault();
       if (!this.state.excess) {
-        this.setState({ excess: true, excessBtn: "Show All" });
-        hideDeplete = "none";
+        this.setState({
+          excess: true,
+          excessBtn: "Show All",
+          hideDeplete: "none"
+        });
       } else {
-        this.setState({ excess: false, excessBtn: "Reserve" });
-        hideDeplete = "";
+        this.setState({ excess: false, excessBtn: "Reserve", hideDeplete: "" });
       }
     }
   };
@@ -41,18 +43,19 @@ class Region extends Component {
     e.preventDefault();
     if (!this.state.excess) {
       if (!this.state.deplete) {
-        this.setState({ deplete: true, depleteBtn: "Show All" });
-        hideExcess = "none";
+        this.setState({
+          deplete: true,
+          depleteBtn: "Show All",
+          hideExcess: "none"
+        });
       } else {
-        this.setState({ deplete: false, depleteBtn: "Deficit" });
-        hideExcess = "";
+        this.setState({
+          deplete: false,
+          depleteBtn: "Deficit",
+          hideExcess: ""
+        });
       }
     }
-  };
-
-  reset = e => {
-    hideDeplete = "";
-    hideExcess = "";
   };
 
   render() {
@@ -137,7 +140,7 @@ class Region extends Component {
         <form className="flex bottom-margin">
           <button
             onClick={this.showExcess}
-            className={`btn btn-success ${hideExcess}`}
+            className={`btn btn-success ${this.state.hideExcess}`}
           >
             {this.state.excessBtn}
           </button>
@@ -148,7 +151,7 @@ class Region extends Component {
           ></input>
           <button
             onClick={this.showDeplete}
-            className={`btn btn-danger ${hideDeplete}`}
+            className={`btn btn-danger ${this.state.hideDeplete}`}
           >
             {this.state.depleteBtn}
           </button>

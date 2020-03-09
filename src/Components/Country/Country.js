@@ -35,7 +35,6 @@ function Country(props) {
       <h2 className="margin title">{locale[0].country.name}</h2>
       <div className="country-pic bottom-margin cover" style={backgroundImg}>
         {" "}
-        {/* <img src={locale[0].country.flag} className="fill"></img> */}
       </div>
       <div className="bottom-margin flex report">
         <div className="flex column">
