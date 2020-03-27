@@ -36,6 +36,9 @@ class Create extends Component {
     this.setState({ region: e.target.value });
   };
 
+  //   post = e => {
+  //     axios.post;
+  //   };
   render() {
     console.log(this.state);
     return (
